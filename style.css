@@ -1,19 +1,19 @@
-/* --- Reset & Base Styles --- */
+/* --- 1. RESET & BASE STYLES --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "roboto"
+    font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: #ffffff;
-    /* text color */
-    color: #000000;
+    background-color: #ffffff; /* Pure crisp white canvas background */
+    color: #111111;           /* High contrast near-black text color */
     line-height: 1.6;
+    overflow-y: auto;          /* Standard fluid scrolling enabled across all devices */
 }
 
-/* --- Navigation --- */
+/* --- 2. NAVIGATION HEADER --- */
 header {
     position: fixed;
     top: 0;
@@ -22,7 +22,7 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     z-index: 1000;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #eeeeee; /* Light edge border replacing old heavy dark line */
 }
 
 .nav-container {
@@ -34,14 +34,19 @@ header {
     padding: 1.5rem 2rem;
 }
 
+/* Upgraded Bold Typography Logo */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 10px;
+    font-family: 'Syne', 'Roboto', sans-serif;
+    font-weight: 800; /* Distinct extra bold styling */
+    font-size: 1.6rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    color: #111111;
 }
 
-
+.logo span {
+    color: #999999; /* Neutral gray dot marker */
+}
 
 .nav-links {
     display: flex;
@@ -50,7 +55,7 @@ header {
 }
 
 .nav-links a {
-    color: #aaaaaaf3;
+    color: #888888; /* Subdued gray links until active/hovered */
     text-decoration: none;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -60,16 +65,16 @@ header {
     border-bottom: 2px solid transparent;
 }
 
-/* Highlights only the active clicked tab */
+/* Synchronized link styling with your white theme canvas rules */
 .nav-links a.active, .nav-links a:hover {
-    color: #000000;
-    border-bottom: 2px solid #fff;
+    color: #111111;
+    border-bottom: 2px solid #111111;
 }
 
-/* --- Section Toggling Rules --- */
+/* --- 3. GLOBAL SECTION STRUCTURAL FRAMEWORK --- */
 section {
-    padding: 8rem 2rem 4rem 2rem;
-    min-height: 100vh;
+    padding: 8rem 2rem 4rem 2rem; /* Comfortable padding room underneath the navigation bar */
+    min-height: 100vh;            /* Sections comfortably stretch to occupy full screen frames */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,9 +84,8 @@ section {
     width: 100%;
 }
 
-/* Force elements to hide completely when inactive */
 .hidden {
-    display: none !important;
+    display: none !important; /* Tab-toggle engine utility flag */
 }
 
 .section-title {
@@ -90,78 +94,50 @@ section {
     letter-spacing: 3px;
     margin-bottom: 3rem;
     text-align: center;
+    color: #111111;
     width: 100%;
 }
 
-
-/* --- Global Body Overrides --- */
-body {
-    background-color: #ffffff; /* Replaced dark theme with pure white */
-    color: #111111;           /* Dark text color for readability */
-    line-height: 1.6;
-    overflow: hidden;          /* Strict guardrail to completely prevent page scrolling */
-}
-
-/* --- Global Section Overrides --- */
-section {
-    padding: 6rem 2rem 2rem 2rem;
-    height: calc(100vh - 60px); /* Locks the section directly to the visible screen area */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-
-/* --- Home Tab View  --- */
+/* --- 4. HOME VIEW (MINIMAL SPLIT LAYOUT) --- */
 #home {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Master container that puts text and image next to each other */
 .hero-content-split {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 1100px;
-    gap: 5rem; 
-    padding: 0 2rem;
+    gap: 5rem;
+    padding: 2rem 0;
 }
 
-/* Left Panel: Typography Styles */
 .hero-contact-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns all text lines neatly to the left edge */
+    align-items: flex-start;
     text-align: left;
 }
 
 .hero-contact-panel h3 {
     font-size: 1.1rem;
     font-weight: 400;
-    color: #777; /* Subtle gray accent color */
+    color: #777777;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 0.8rem;
 }
 
 .hero-email-link {
-    font-size: 1.5rem; /* Large, premium typographic link size */
+    font-size: 1.8rem;
     font-weight: 600;
     color: #111111;
     text-decoration: none;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #111111;
     padding-bottom: 4px;
     margin-bottom: 2rem;
     transition: opacity 0.3s ease;
@@ -171,7 +147,6 @@ section {
     opacity: 0.6;
 }
 
-/* Horizontal social link row under email */
 .hero-social-row {
     display: flex;
     gap: 2rem;
@@ -179,7 +154,7 @@ section {
 }
 
 .hero-social-link {
-    color: #555;
+    color: #555555;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
@@ -189,85 +164,26 @@ section {
 }
 
 .hero-social-link:hover {
-    color: #111;
-    border-bottom: 1px solid #111;
+    color: #111111;
+    border-bottom: 1px solid #111111;
 }
 
-/* Right Panel */
 .hero-image-frame {
-    flex: 1.2; /* Allocates slightly more width to the photo than the text */
+    flex: 1.2;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .single-featured-photo {
-    max-width: 100%;           
-    max-height: 60vh; /* Locks height to ensure zero vertical page overflows */
-    width: auto;              
-    height: auto;             
+    max-width: 100%;
+    height: auto;
+    max-height: 65vh; /* Safely balances photo dimensions inside default desktop viewports */
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Responsive adjustment: stack vertically on narrow mobile phones */
-@media (max-width: 768px) {
-    .hero-content-split {
-        flex-direction: column-reverse; /* Puts photo on top, contact info underneath on phone screens */
-        gap: 2.5rem;
-    }
-    .hero-contact-panel {
-        align-items: center;
-        text-align: center;
-    }
-    .hero-email-link {
-        font-size: 1.4rem;
-    }
-    .single-featured-photo {
-        max-height: 45vh;
-    }
-}
-
-
-/* Scaled image properties to fit any standard monitor aspect ratio */
-.single-featured-photo {
-    max-width: 90%;           
-    max-height: 65vh;         /* Shrinks the photo frame size down to ensure zero overflow */
-    width: auto;              
-    height: auto;             
-    display: block;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Replaced heavy dark shadow with a soft, clean drop shadow */
-}
-
-/* Responsive adjustment for mobile screens */
-@media (max-width: 768px) {
-    .single-featured-photo {
-        max-width: 95%;       
-        max-height: 55vh;     /* Keeps it beautifully compact on shorter smartphone screens */
-    }
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    background: transparent;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #fff;
-    color: #000000;
-}
-
-
-/* --- work Filter Buttons --- */
+/* --- 5. WORK / GALLERY FILTER SYSTEM --- */
 .work-filters {
     display: flex;
     justify-content: center;
@@ -279,7 +195,7 @@ section {
 .filter-btn {
     background: none;
     border: none;
-    color: #888;
+    color: #888888;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -289,13 +205,11 @@ section {
     transition: all 0.3s ease;
 }
 
-/* Style for the active/selected category */
 .filter-btn.active, .filter-btn:hover {
-    color: #111;
-    border-bottom: 2px solid #111;
+    color: #111111;
+    border-bottom: 2px solid #111111;
 }
 
-/* Smooth micro-animation helper class for filtering transitions */
 .fade-item {
     animation: fadeInImage 0.4s ease forwards;
 }
@@ -304,7 +218,8 @@ section {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
-/* --- work Tab View --- */
+
+/* --- 6. GALLERY GRID SYSTEM --- */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -316,7 +231,7 @@ section {
     position: relative;
     overflow: hidden;
     height: 300px;
-    background-color: #222;
+    background-color: #fafafa;
     cursor: pointer;
 }
 
@@ -337,11 +252,11 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.9); /* Styled light overlay to match white theme */
     opacity: 0;
     display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
+    align-items: center;
+    justify-content: center;
     transition: opacity 0.3s ease;
 }
 
@@ -350,12 +265,14 @@ section {
 }
 
 .photo-overlay p {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-/* --- About Tab View --- */
+/* --- 7. ABOUT VIEW --- */
 .about-content {
     display: flex;
     align-items: center;
@@ -367,6 +284,7 @@ section {
     flex: 1;
     max-height: 500px;
     overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .about-img img {
@@ -381,95 +299,20 @@ section {
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #000000;
+    color: #333333;
     font-size: 1.1rem;
 }
 
-/* --- Contact Tab View --- */
-
-/* --- Contact Tab View (Stacked Layout) --- */
-.contact-container {
-    display: flex;
-    flex-direction: column; /* Stacks information vertically */
-    align-items: center;
-    width: 100%;
-    max-width: 600px;       /* Keeps the form fields a comfortable reading width */
-    margin: 0 auto;
-    gap: 2.5rem;
-}
-
-.contact-info-stacked {
-    text-align: center;
-    width: 100%;
-}
-
-.contact-info-stacked p {
-    color: #aaa;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Makes your email stand out as a clean, clickable link */
-.contact-email-link {
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 400;
-    text-decoration: none;
-    letter-spacing: 1px;
-    border-bottom: 1px dashed #666;
-    transition: border-color 0.3s;
-}
-
-.contact-email-link:hover {
-    border-bottom-color: #fff;
-}
-
-.contact-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group input, .form-group textarea {
-    background-color: #ffffff;
-    border: 1px solid #333;
-    padding: 1rem;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    width: 100%;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    border-color: #666;
-}
-
-.form-group textarea {
-    resize: vertical;
-    height: 150px;
-}
-
-.submit-btn {
-    align-self: center; /* Centers the button perfectly at the bottom of the form */
-    padding: 0.8rem 3rem;
-}
-
-
-
-/* --- Lightbox Modal View --- */
+/* --- 8. LIGHTBOX MODAL --- */
 .lightbox {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 2000;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98); /* Luxury clean light lightbox mask overlay */
     justify-content: center;
     align-items: center;
 }
@@ -478,31 +321,100 @@ section {
     max-width: 85%;
     max-height: 80%;
     object-fit: contain;
-    border: 2px solid #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .lightbox-close {
     position: absolute;
-    top: 2rem; right: 3rem;
-    color: #fff; font-size: 3rem; font-weight: bold;
+    top: 2rem; 
+    right: 3rem;
+    color: #111111; 
+    font-size: 3rem; 
+    font-weight: 300;
     cursor: pointer;
 }
 
-/* --- Footer --- */
+/* --- 9. BUTTON ELEMENTS --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid #111111;
+    color: #111111;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* --- 10. FOOTER --- */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     font-size: 0.8rem;
-    color: #666;
-    border-top: 1px solid #222;
+    color: #888888;
+    border-top: 1px solid #f5f5f5;
     letter-spacing: 1px;
 }
 
-/* --- Responsive Layout --- */
+/* --- 11. LAYOUT RESPONSIVENESS CAPABILITIES --- */
 @media (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 1rem; }
-    .nav-links { gap: 1.5rem; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .about-content, .contact-container { flex-direction: column; gap: 2rem; }
-    .about-img { width: 100%; }
+    section {
+        padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .hero-content-split {
+        flex-direction: column-reverse; /* Smooth responsive image sorting stacking */
+        gap: 3rem;
+    }
+    
+    .hero-contact-panel {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-email-link {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .single-featured-photo {
+        max-height: 50vh;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-img {
+        width: 100%;
+    }
+    
+    .work-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .lightbox-close {
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+    }
 }
