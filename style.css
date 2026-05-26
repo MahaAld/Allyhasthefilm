@@ -115,9 +115,9 @@ section {
     width: 100%;
 }
 
-/* --- Home Tab View (No Scrolling, Clean White Layout) --- */
+
+/* --- Home Tab View  --- */
 #home {
-    background: none;          /* Completely stripped background properties */
     background-color: #ffffff; 
     width: 100%;
     height: 100%;
@@ -126,13 +126,108 @@ section {
     align-items: center;
 }
 
-.hero-content {
+/* Master container that puts text and image next to each other */
+.hero-content-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    gap: 5rem; 
+    padding: 0 2rem;
+}
+
+/* Left Panel: Typography Styles */
+.hero-contact-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns all text lines neatly to the left edge */
+    text-align: left;
+}
+
+.hero-contact-panel h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #777; /* Subtle gray accent color */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+}
+
+.hero-email-link {
+    font-size: 1.5rem; /* Large, premium typographic link size */
+    font-weight: 600;
+    color: #111111;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+    margin-bottom: 2rem;
+    transition: opacity 0.3s ease;
+}
+
+.hero-email-link:hover {
+    opacity: 0.6;
+}
+
+/* Horizontal social link row under email */
+.hero-social-row {
+    display: flex;
+    gap: 2rem;
+    white-space: nowrap;
+}
+
+.hero-social-link {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.hero-social-link:hover {
+    color: #111;
+    border-bottom: 1px solid #111;
+}
+
+/* Right Panel */
+.hero-image-frame {
+    flex: 1.2; /* Allocates slightly more width to the photo than the text */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: auto;
 }
+
+.single-featured-photo {
+    max-width: 100%;           
+    max-height: 60vh; /* Locks height to ensure zero vertical page overflows */
+    width: auto;              
+    height: auto;             
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustment: stack vertically on narrow mobile phones */
+@media (max-width: 768px) {
+    .hero-content-split {
+        flex-direction: column-reverse; /* Puts photo on top, contact info underneath on phone screens */
+        gap: 2.5rem;
+    }
+    .hero-contact-panel {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-email-link {
+        font-size: 1.4rem;
+    }
+    .single-featured-photo {
+        max-height: 45vh;
+    }
+}
+
 
 /* Scaled image properties to fit any standard monitor aspect ratio */
 .single-featured-photo {
@@ -171,15 +266,53 @@ section {
     color: #000000;
 }
 
-/* --- Gallery Tab View --- */
-.gallery-grid {
+
+/* --- work Filter Buttons --- */
+.work-filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Style for the active/selected category */
+.filter-btn.active, .filter-btn:hover {
+    color: #111;
+    border-bottom: 2px solid #111;
+}
+
+/* Smooth micro-animation helper class for filtering transitions */
+.fade-item {
+    animation: fadeInImage 0.4s ease forwards;
+}
+
+@keyframes fadeInImage {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* --- work Tab View --- */
+.work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1.5rem;
     width: 100%;
 }
 
-.gallery-item {
+.work-item {
     position: relative;
     overflow: hidden;
     height: 300px;
@@ -187,14 +320,14 @@ section {
     cursor: pointer;
 }
 
-.gallery-item img {
+.work-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.gallery-item:hover img {
+.work-item:hover img {
     transform: scale(1.05);
 }
 
@@ -212,7 +345,7 @@ section {
     transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .photo-overlay {
+.work-item:hover .photo-overlay {
     opacity: 1;
 }
 
@@ -248,7 +381,7 @@ section {
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #ccc;
+    color: #000000;
     font-size: 1.1rem;
 }
 

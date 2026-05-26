@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allyhasthefilm</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="images/about.png">
 </head>
 <body>
 
@@ -13,9 +15,9 @@
             <div class="logo">Allyhasthefilm</div>
             <ul class="nav-links">
                 <li><a href="#home" class="tab-link active">Home</a></li>
-                <li><a href="#gallery" class="tab-link">Gallery</a></li>
+                <li><a href="#work" class="tab-link">Work</a></li>
                 <li><a href="#about" class="tab-link">About</a></li>
-                <li><a href="#contact" class="tab-link">Contact</a></li>
+                <!-- <li><a href="#contact" class="tab-link">Contact</a></li> -->
             </ul>
         </nav>
     </header>
@@ -23,43 +25,54 @@
     <!-- HOME -->
 
 
-    <section id="home">
-    <div class="hero-content">
-        <img src="images/photo6.JPEG" alt="Featured Work" class="single-featured-photo">
-    </div>
-</section>
+ <section id="home">
+        <div class="hero-content-split">
+            
+            <div class="hero-contact-panel">
+                <h3>For commission or business:</h3>
+                <a href="mailto:allyhasthefilm@gmail.com" class="hero-email-link">allyhasthefilm@gmail.com</a>
+                
+                <div class="hero-social-row">
+                    <a href="https://instagram.com/allyhasthefilm" target="_blank" class="hero-social-link">Instagram</a>
+                    <a href="https://youtube.com/@allyhasthefilm" target="_blank" class="hero-social-link">YouTube</a>
+                    <a href="https://tiktok.com/@allyhasthefilm" target="_blank" class="hero-social-link">Tiktok</a>
+                </div>
+            </div>
 
+            <div class="hero-image-frame">
+                <img src="images/photo6.JPEG" alt="Featured Work" class="single-featured-photo">
+            </div>
 
-
-    <!-- GALLERY -->
-    <section id="gallery" class="hidden">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                   <img src="images/photo1.jpg" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Mountain Majesty</p></div> -->
-            </div>
-            <div class="gallery-item">
-                     <img src="images/photo3.jpg" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Deep Woods</p></div> -->
-            </div>
-            <div class="gallery-item">
-                           <img src="images/photo4.jpg" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Mountain Majesty</p></div> -->
-            </div>
-            <div class="gallery-item">
-                               <img src="images/photo5.JPEG" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Mountain Majesty</p></div> -->
-            </div>
-            <div class="gallery-item">
-                              <img src="images/photo6.JPEG" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Mountain Majesty</p></div> -->
-            </div>
-            <div class="gallery-item">
-                               <img src="images/photo7.JPEG" alt="photo1">
-                <!-- <div class="photo-overlay"><p>Mountain Majesty</p></div> -->
-            </div>
         </div>
+    </section>
+
+    <!-- work -->
+    <section id="work" class="hidden">
+        <h2 class="section-title">work</h2>
+        
+        <div class="work-filters">
+            <button class="filter-btn" data-filter="street">Street</button>
+            <button class="filter-btn" data-filter="portraits">Portraiture</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+        </div>
+
+        <div class="work-grid">
+            <div class="work-item" data-category="street">
+                <img src="images/photo1.jpg">
+                <div class="photo-overlay"></div>
+            </div>
+            
+            <div class="work-item" data-category="nature">
+                <img src="images/photo5.JPEG">
+                <div class="photo-overlay"></div>
+            </div>
+            
+            <div class="work-item" data-category="portraits">
+                <img src="images/photo12.JPEG">
+                <div class="photo-overlay"></div>
+            </div>
+
+            </div>
     </section>
 
     <!-- ABOUT -->
@@ -71,19 +84,20 @@
 
             </div>
             <div class="about-text">
-                <p>about me text here</p>
+                <p>Ally is a Brooklyn-based photographer </p>
 
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT
 <section id="contact" class="hidden">
         <h2 class="section-title">Contact</h2>
         
         <div class="contact-container">
             <div class="contact-info-stacked">
 <p> allyhasthefilm@gmail.com</p>
+
             </div>
 
             <form class="contact-form" id="contactForm">
@@ -99,7 +113,7 @@
                 <button type="submit" class="btn submit-btn">Send Message</button>
             </form>
         </div>
-    </section>
+    </section> -->
 
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
@@ -110,4 +124,8 @@
 
     <script src="script.js"></script>
 </body>
+
+
+
 </html>
+

@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     const tabLinks = document.querySelectorAll('.tab-link');
-    const galleryTrigger = document.querySelector('.gallery-trigger');
+    const workTrigger = document.querySelector('.work-trigger');
     const sections = document.querySelectorAll('section');
 
     // --- 1. CORE TAB CONTROLLER ENGINE ---
     function showTab(targetId) {
-        // Strip out the '#' character to evaluate clean HTML element IDs
         const cleanId = targetId.replace('#', '');
         
-        // Loop and toggle visibility classes: show target, hide all others
         sections.forEach(section => {
             if (section.id === cleanId) {
                 section.classList.remove('hidden');
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Loop and synchronize active class colors in top navigation tabs
         tabLinks.forEach(link => {
             if (link.getAttribute('href') === `#${cleanId}`) {
                 link.classList.add('active');
@@ -27,54 +24,103 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Snap window safely up to top for fresh layout views
         window.scrollTo(0, 0);
     }
 
-    // Attach click events to top navigation tab links
     tabLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // Break native smooth scroll anchors
+            e.preventDefault(); 
             showTab(link.getAttribute('href'));
         });
     });
 
-    // Attach click event to home hero 'View Gallery' button
-    galleryTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        showTab(galleryTrigger.getAttribute('href'));
-    });
+    // Added a check just in case you removed the home button text completely
+    if (workTrigger) {
+        workTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            showTab(workTrigger.getAttribute('href'));
+        });
+    }
 
 
-    // --- 2. LIGHTBOX GALLERY EFFECT ---
-    const galleryItems = document.querySelectorAll('.gallery-item img');
+    // --- 2. LIGHTBOX work EFFECT ---
+    const lightboxImages = document.querySelectorAll('.work-item img'); // Renamed to avoid conflicts
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.querySelector('.lightbox-close');
 
-    galleryItems.forEach(image => {
+    lightboxImages.forEach(image => {
         image.addEventListener('click', () => {
             lightbox.style.display = 'flex';
             lightboxImg.src = image.src;
         });
     });
 
-    lightboxClose.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox) {
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
             lightbox.style.display = 'none';
-        }
-    });
+        });
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
 
 
-    // --- 3. CONTACT FORM SYSTEM ---
+    // --- 3. UPGRADED CONTACT FORM SYSTEM ---
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert(`Thank you! Your message has been recorded safely.`);
-        contactForm.reset();
+    const successMessage = document.getElementById('form-success');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show the custom elegant message instead of an old alert box
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                
+                // Automatically hide it after 4 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 4000);
+            } else {
+                // Fallback alert if the HTML element isn't there
+                alert(`Thank you! Your message has been recorded safely.`);
+            }
+            
+            contactForm.reset();
+        });
+    }
+
+
+    // --- 4. work CATEGORY FILTER ENGINE ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterItems = document.querySelectorAll('.work-item'); // Renamed to keep code isolated
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            filterItems.forEach(item => {
+                item.classList.remove('fade-item');
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === itemCategory) {
+                    item.classList.remove('hidden');
+                    setTimeout(() => {
+                        item.classList.add('fade-item');
+                    }, 10);
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
     });
 });
