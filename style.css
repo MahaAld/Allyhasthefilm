@@ -1,0 +1,375 @@
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto"
+}
+
+body {
+    background-color: #ffffff;
+    /* text color */
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* --- Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: #aaaaaaf3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+/* Highlights only the active clicked tab */
+.nav-links a.active, .nav-links a:hover {
+    color: #000000;
+    border-bottom: 2px solid #fff;
+}
+
+/* --- Section Toggling Rules --- */
+section {
+    padding: 8rem 2rem 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Force elements to hide completely when inactive */
+.hidden {
+    display: none !important;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* --- Global Body Overrides --- */
+body {
+    background-color: #ffffff; /* Replaced dark theme with pure white */
+    color: #111111;           /* Dark text color for readability */
+    line-height: 1.6;
+    overflow: hidden;          /* Strict guardrail to completely prevent page scrolling */
+}
+
+/* --- Global Section Overrides --- */
+section {
+    padding: 6rem 2rem 2rem 2rem;
+    height: calc(100vh - 60px); /* Locks the section directly to the visible screen area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- Home Tab View (No Scrolling, Clean White Layout) --- */
+#home {
+    background: none;          /* Completely stripped background properties */
+    background-color: #ffffff; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+/* Scaled image properties to fit any standard monitor aspect ratio */
+.single-featured-photo {
+    max-width: 90%;           
+    max-height: 65vh;         /* Shrinks the photo frame size down to ensure zero overflow */
+    width: auto;              
+    height: auto;             
+    display: block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Replaced heavy dark shadow with a soft, clean drop shadow */
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    .single-featured-photo {
+        max-width: 95%;       
+        max-height: 55vh;     /* Keeps it beautifully compact on shorter smartphone screens */
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000000;
+}
+
+/* --- Gallery Tab View --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    background-color: #222;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-overlay p {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- About Tab View --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+}
+
+.about-img {
+    flex: 1;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* --- Contact Tab View --- */
+
+/* --- Contact Tab View (Stacked Layout) --- */
+.contact-container {
+    display: flex;
+    flex-direction: column; /* Stacks information vertically */
+    align-items: center;
+    width: 100%;
+    max-width: 600px;       /* Keeps the form fields a comfortable reading width */
+    margin: 0 auto;
+    gap: 2.5rem;
+}
+
+.contact-info-stacked {
+    text-align: center;
+    width: 100%;
+}
+
+.contact-info-stacked p {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Makes your email stand out as a clean, clickable link */
+.contact-email-link {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed #666;
+    transition: border-color 0.3s;
+}
+
+.contact-email-link:hover {
+    border-bottom-color: #fff;
+}
+
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input, .form-group textarea {
+    background-color: #ffffff;
+    border: 1px solid #333;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #666;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.submit-btn {
+    align-self: center; /* Centers the button perfectly at the bottom of the form */
+    padding: 0.8rem 3rem;
+}
+
+
+
+/* --- Lightbox Modal View --- */
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 80%;
+    object-fit: contain;
+    border: 2px solid #fff;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem; right: 3rem;
+    color: #fff; font-size: 3rem; font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid #222;
+    letter-spacing: 1px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 1rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .about-content, .contact-container { flex-direction: column; gap: 2rem; }
+    .about-img { width: 100%; }
+}
