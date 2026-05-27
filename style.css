@@ -183,11 +183,17 @@ section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+/* Keeps the entire image grid invisible on initial entry */
+.work-grid.container-hidden {
+    display: none !important;
+}
+
+
 /* --- 5. WORK / GALLERY FILTER SYSTEM --- */
 .work-filters {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 5rem;
     margin-bottom: 2.5rem;
     width: 100%;
 }
@@ -196,7 +202,7 @@ section {
     background: none;
     border: none;
     color: #888888;
-    font-size: 1rem;
+    font-size: 3rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     cursor: pointer;
@@ -219,44 +225,48 @@ section {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* --- 6. GALLERY GRID SYSTEM --- */
+
+/* ---  Gallery Layout --- */
 .work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1.5rem;
+    column-count: 3;       /* Default: 3 beautiful vertical columns on desktop */
+    column-gap: 1.5rem;    /* Horizontal spacing between columns */
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .work-item {
     position: relative;
     overflow: hidden;
-    height: 300px;
     background-color: #fafafa;
     cursor: pointer;
+    width: 100%;
+    margin-bottom: 1.5rem; /* Vertical spacing between stacked photos */
+    break-inside: avoid;   /* CRUCIAL: Prevents an image from cutting in half across columns */
+    display: inline-block; /* Fixes browser rendering quirks in column layouts */
 }
 
 .work-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;          /* Maintains the true aspect ratio of your film shots */
+    display: block;
+    object-fit: contain;   /* Completely prevents any accidental cropping */
     transition: transform 0.5s ease;
 }
 
 .work-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Clean, elegant micro-zoom */
 }
 
+/* Minimalist light overlay mask */
 .photo-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9); /* Styled light overlay to match white theme */
+    background: rgba(255, 255, 255, 0.05);
     opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: opacity 0.3s ease;
 }
 
@@ -264,20 +274,29 @@ section {
     opacity: 1;
 }
 
-.photo-overlay p {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #111111;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+/* --- Responsive Adjustments for Mobile Viewports --- */
+@media (max-width: 768px) {
+    .work-grid {
+        column-count: 2;   /* Drops cleanly to 2 columns on tablets and larger phones */
+        column-gap: 1rem;
+    }
+    .work-item {
+        margin-bottom: 1rem;
+    }
 }
 
-/* --- 7. ABOUT VIEW --- */
+@media (max-width: 480px) {
+    .work-grid {
+        column-count: 1;   /* Stacks into 1 beautiful full-bleed stream on compact phone screens */
+    }
+}
+/* --- About Tab View --- */
 .about-content {
     display: flex;
     align-items: center;
     gap: 4rem;
     width: 100%;
+    max-width: 1000px; /* Keeps the text block at a highly readable column width */
 }
 
 .about-img {
@@ -297,10 +316,28 @@ section {
     flex: 1;
 }
 
+/* Updated for Justified Layout and Advanced Text Wrapping */
 .about-text p {
-    margin-bottom: 1.5rem;
-    color: #333333;
+    color: #111111;
     font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;       /* Force aligns text lines perfectly to both left and right margins */
+    text-justify: inter-word;  /* Distributes spacing smoothly between words for a clean look */
+    word-wrap: break-word;     /* Standard backup protection for older mobile browsers */
+    overflow-wrap: break-word; /* Prevents long words from spilling outside your layout box */
+    hyphens: auto;             /* Softly handles long word hyphenation on extra narrow phone screens */
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stacks image above text neatly on mobile viewports */
+        gap: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;       /* Slightly smaller typography for better mobile balance */
+    }
 }
 
 /* --- 8. LIGHTBOX MODAL --- */
@@ -354,15 +391,6 @@ section {
     color: #ffffff;
 }
 
-/* --- 10. FOOTER --- */
-footer {
-    text-align: center;
-    padding: 3rem 2rem;
-    font-size: 0.8rem;
-    color: #888888;
-    border-top: 1px solid #f5f5f5;
-    letter-spacing: 1px;
-}
 
 /* --- 11. LAYOUT RESPONSIVENESS CAPABILITIES --- */
 @media (max-width: 768px) {

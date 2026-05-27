@@ -12,7 +12,7 @@
 
     <header>
         <nav class="nav-container">
-            <div class="logo">Allyhasthefilm</div>
+            <div class="logo">Ally has the film</div>
             <ul class="nav-links">
                 <li><a href="#home" class="tab-link active">Home</a></li>
                 <li><a href="#work" class="tab-link">Work</a></li>
@@ -22,6 +22,8 @@
         </nav>
     </header>
 
+    
+    
     <!-- HOME -->
 
 
@@ -46,33 +48,78 @@
         </div>
     </section>
 
-    <!-- work -->
+
+   <!-- work -->
     <section id="work" class="hidden">
-        <h2 class="section-title">work</h2>
+        <!-- <h2 class="section-title">work</h2> -->
         
         <div class="work-filters">
             <button class="filter-btn" data-filter="street">Street</button>
             <button class="filter-btn" data-filter="portraits">Portraiture</button>
             <button class="filter-btn" data-filter="nature">Nature</button>
+            <button class="filter-btn" data-filter="events">Events</button>
         </div>
 
-        <div class="work-grid">
+        <!-- The grid stays container-hidden until a button above is tapped -->
+        <div class="work-grid container-hidden">
+
+            <!-- STREET -->
             <div class="work-item" data-category="street">
-                <img src="images/photo1.jpg">
+                <img src="images/photo1.jpg" alt="Street">
                 <div class="photo-overlay"></div>
             </div>
             
+
+
+            <!-- NATURE? -->
             <div class="work-item" data-category="nature">
-                <img src="images/photo5.JPEG">
+                <img src="images/photo5.JPEG" alt="Nature">
                 <div class="photo-overlay"></div>
             </div>
             
+
+
+            <!-- PORTRAITURE -->
             <div class="work-item" data-category="portraits">
-                <img src="images/photo12.JPEG">
+                <img src="images/photo12.JPEG" alt="Portraits">
                 <div class="photo-overlay"></div>
             </div>
 
+ <!-- EVENTS -->
+                <div class="work-item" data-category="events">
+                <img src="images/nycmarathon1.JPG" alt="Events">
+                <div class="photo-overlay"></div>
             </div>
+
+            <div class="work-item" data-category="events">
+                <img src="images/nycmarathon2.JPG" alt="Events">
+                <div class="photo-overlay"></div>
+            </div>
+
+            <div class="work-item" data-category="events">
+                <img src="images/nycmarathon3.JPG" alt="Events">
+                <div class="photo-overlay"></div>
+            </div>
+
+            <div class="work-item" data-category="events">
+                <img src="images/nycmarathon4.JPG" alt="Events">
+                <div class="photo-overlay"></div>
+            </div>
+
+
+
+            <div class="work-item" data-category="events">
+                <img src="images/photo12.JPEG" alt="Events">
+                <div class="photo-overlay"></div>
+            </div>
+
+
+            <div class="work-item" data-category="events">
+                <img src="images/photo3.jpg" alt="Events">
+                <div class="photo-overlay"></div>
+            </div>
+
+        </div>
     </section>
 
     <!-- ABOUT -->
@@ -84,7 +131,9 @@
 
             </div>
             <div class="about-text">
-                <p>Ally is a Brooklyn-based photographer </p>
+                <p>Ally is a Brooklyn-based photographer who docuemnts the city through film and visual storytelling. Her work focuses on capturing street scenes, experimenting with composition, and sharing the creative process behind each shot. 
+                
+                </p>
 
             </div>
         </div>
