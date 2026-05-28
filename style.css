@@ -152,7 +152,7 @@ header {
     max-width: 17ch;
     
     animation: 
-        typing 3.5s steps(16, end) forwards,
+        typing 3.5s steps(17, end) forwards,
         blink-caret 1s step-end infinite;
 }
 
@@ -177,7 +177,7 @@ header {
 .work-filters {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
     margin-bottom: 2.5rem;
     width: 100%;
 }
@@ -214,7 +214,7 @@ header {
     column-count: 3;       
     column-gap: 1.5rem;    
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -394,8 +394,8 @@ header {
     .typewriter-logo {
         font-size: 1.6rem;
         /* Responsive adjustments for mobile text bounds tracking */
-        width: 15ch;
-        max-width: 15ch;
+        width: 17ch;
+        max-width: 17ch;
     }
 
     .work-filters {
@@ -448,7 +448,7 @@ header {
 @media (max-width: 480px) {
 /* --- iPhone Friendly Category Filters --- */
     .work-filters {
-        flex-direction: column; /* Switches them from horizontal to a clean vertical stack */
+        flex-direction: column; 
         align-items: center;
         gap: 1.2rem;            /* Generous vertical spacing for thumb-friendly tapping */
         margin-bottom: 2rem;
@@ -461,6 +461,6 @@ header {
         letter-spacing: 2px;
     }
     .work-grid {
-        column-count: 1; 
+        column-count: 2; 
     }
 }
